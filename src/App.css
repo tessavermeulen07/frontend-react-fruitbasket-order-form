@@ -4,7 +4,22 @@
     box-sizing: border-box;
 }
 
+.fruit-information {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 50px;
+    gap: 10px;
+}
+
+.fruit-individual {
+    padding: 20px;
+    text-align: center;
+}
+
 .form-information {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    margin: 50px 50px;
+    padding: 20px;
 }

@@ -1,5 +1,6 @@
 import './App.css'
 import {useState} from "react";
+import Button from "./components/Button.jsx";
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     const [lastNameValue, setLastNameValue] = useState('');
     const [ageValue, setAgeValue] = useState(0);
     const [zipCodeValue, setZipCodeValue] = useState('');
-    const [deliveryValue, setDeliveryValue] = useState ('Selecteer een moment');
+    const [deliveryValue, setDeliveryValue] = useState('Selecteer een moment');
     const [deliveryMomentValue, setDeliveryMomentValue] = useState('overdag');
     const [remarkValue, setRemarkValue] = useState('');
     const [agreeConditionsValue, toggleAgreeConditionsValue] = useState(false);
@@ -40,74 +41,83 @@ function App() {
         <>
             <h1>Fruitmand bezorgservice</h1>
             <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <h2>
-                        🍓Aardbeien <button
-                        type="button"
-                        name="minus"
-                        id="decrease-btn"
-                        disabled={strawberryCount === 0}
-                        onClick={() => setStrawberryCount(strawberryCount - 1)}>-</button> {strawberryCount}
-                        <button
+                <div className="fruit-information">
+                    <fieldset className="fruit-individual">
+                        <h2>
+                            🍓Aardbeien <button
                             type="button"
-                            name="plus"
-                            id="increase-btn"
-                            onClick={() => setStrawberryCount(strawberryCount + 1)}>+
-                        </button>
-                    </h2>
-                </fieldset>
-                <fieldset>
-                    <h2>🍌Bananen <button
-                        type="button"
-                        name="minus"
-                        id="decrease-btn"
-                        disabled={bananaCount === 0}
-                        onClick={() => setBananaCount(bananaCount - 1)}>-</button> {bananaCount}
-                        <button
+                            name="minus"
+                            id="decrease-btn"
+                            disabled={strawberryCount === 0}
+                            onClick={() => setStrawberryCount(strawberryCount - 1)}>-</button> {strawberryCount} <button
+                                type="button"
+                                name="plus"
+                                id="increase-btn"
+                                onClick={() => setStrawberryCount(strawberryCount + 1)}>+
+                            </button>
+                        </h2>
+                    </fieldset>
+                    <fieldset className="fruit-individual">
+                        <h2>🍌Bananen <button
                             type="button"
-                            name="plus"
-                            id="increase-btn"
-                            onClick={() => setBananaCount(bananaCount + 1)}>+
-                        </button>
-                    </h2>
-                </fieldset>
-                <fieldset>
-                    <h2>🍎Appels <button
-                        type="button"
-                        name="minus"
-                        id="decrease-btn"
-                        disabled={appleCount === 0}
-                        onClick={() => setAppleCount(appleCount - 1)}>-</button> {appleCount}
-                        <button
+                            name="minus"
+                            id="decrease-btn"
+                            disabled={bananaCount === 0}
+                            onClick={() => setBananaCount(bananaCount - 1)}>-</button> {bananaCount} <button
+                                type="button"
+                                name="plus"
+                                id="increase-btn"
+                                onClick={() => setBananaCount(bananaCount + 1)}>+
+                            </button>
+                        </h2>
+                    </fieldset>
+                    <fieldset className="fruit-individual">
+                        <h2>🍎Appels <button
                             type="button"
-                            name="plus"
-                            id="increase-btn"
-                            onClick={() => setAppleCount(appleCount + 1)}>+
-                        </button>
-                    </h2>
-                </fieldset>
-                <fieldset>
-                    <h2>🥝Kiwi's <button
-                        type="button"
-                        name="minus"
-                        id="decrease-btn"
-                        disabled={kiwiCount === 0}
-                        onClick={() => setKiwiCount(kiwiCount - 1)}>-</button> {kiwiCount}
-                        <button
+                            name="minus"
+                            id="decrease-btn"
+                            disabled={appleCount === 0}
+                            onClick={() => setAppleCount(appleCount - 1)}>-</button> {appleCount} <button
+                                type="button"
+                                name="plus"
+                                id="increase-btn"
+                                onClick={() => setAppleCount(appleCount + 1)}>+
+                            </button>
+                        </h2>
+                    </fieldset>
+                    <fieldset className="fruit-individual">
+                        <h2>🥝Kiwi's <button
                             type="button"
-                            name="plus"
-                            id="increase-btn"
-                            onClick={() => setKiwiCount(kiwiCount + 1)}>+
-                        </button>
-                    </h2>
-                </fieldset>
-                <button
-                    type="reset"
-                    value="reset"
-                    name="reset"
-                    onClick={() => ([setStrawberryCount(0), setBananaCount(0),
-                        setAppleCount(0), setKiwiCount(0)])}>Reset
-                </button> {/*Hier een functie van maken zie 22 minuten*/}
+                            name="minus"
+                            id="decrease-btn"
+                            disabled={kiwiCount === 0}
+                            onClick={() => setKiwiCount(kiwiCount - 1)}>-</button> {kiwiCount} <button
+                                type="button"
+                                name="plus"
+                                id="increase-btn"
+                                onClick={() => setKiwiCount(kiwiCount + 1)}>+
+                            </button>
+                        </h2>
+                    </fieldset>
+
+                    <Button
+                        typeOfButton="reset"
+                        valueOfButton="reset"
+                        nameOfButton="reset"
+                        onClickOfButton={() => ([setStrawberryCount(0), setBananaCount(0),
+                            setAppleCount(0), setKiwiCount(0)])}
+                        textOnButton="Reset"
+                    />
+
+                    {/*<button*/}
+                    {/*    type="reset"*/}
+                    {/*    value="reset"*/}
+                    {/*    name="reset"*/}
+                    {/*    onClick={() => ([setStrawberryCount(0), setBananaCount(0),*/}
+                    {/*        setAppleCount(0), setKiwiCount(0)])}>Reset*/}
+                    {/*</button>*/}
+                    {/*Hier een functie van maken zie 22 minuten*/}
+                </div>
                 <fieldset className="form-information">
                     <label htmlFor="first-name">
                         Voornaam: <input
@@ -120,21 +130,21 @@ function App() {
                     />
                     </label>
                     <label>Achternaam: <input
-                    type="text"
-                    id="last-name"
-                    name="last-name"
-                    size="30"
-                    value={lastNameValue}
-                    onChange={(e) => setLastNameValue(e.target.value)}
+                        type="text"
+                        id="last-name"
+                        name="last-name"
+                        size="30"
+                        value={lastNameValue}
+                        onChange={(e) => setLastNameValue(e.target.value)}
                     />
                     </label>
                     <label>Leeftijd: <input
-                    type="number"
-                    id="age"
-                    name="age"
-                    size="30"
-                    value={ageValue}
-                    onChange={(e) => setAgeValue(e.target.value)}
+                        type="number"
+                        id="age"
+                        name="age"
+                        size="30"
+                        value={ageValue}
+                        onChange={(e) => setAgeValue(e.target.value)}
                     />
                     </label>
                     <label>Postcode: <input
@@ -153,9 +163,9 @@ function App() {
                             value={deliveryValue}
                             onChange={(e) => setDeliveryValue(e.target.value)}
                         >
-                            <option value="weekly">Iedere week</option>
-                            <option value="every-other-week">Om de week</option>
-                            <option value="monthly">Iedere maand</option>
+                            <option value="iedere-week">Iedere week</option>
+                            <option value="om-de-week">Om de week</option>
+                            <option value="iedere-maand">Iedere maand</option>
                         </select>
                     </label>
                     <label>
@@ -166,12 +176,12 @@ function App() {
                             checked={deliveryMomentValue === "overdag"}
                             onChange={(e) => setDeliveryMomentValue(e.target.value)}
                         /> overdag <input
-                            type="radio"
-                            name="deliverymoment"
-                            value="'s avonds"
-                            checked={deliveryMomentValue === "'s avonds"}
-                            onChange={(e) => setDeliveryMomentValue(e.target.value)}
-                        /> &apos;s avonds
+                        type="radio"
+                        name="deliverymoment"
+                        value="'s avonds"
+                        checked={deliveryMomentValue === "'s avonds"}
+                        onChange={(e) => setDeliveryMomentValue(e.target.value)}
+                    /> &apos;s avonds
                     </label>
                     <label>
                         <p>Opmerking:</p>
@@ -193,13 +203,21 @@ function App() {
                             onChange={(e) => toggleAgreeConditionsValue(!agreeConditionsValue)}
                         /> Ik ga akkoord met de voorwaarden
                     </label>
-                    <button
-                        type="submit"
-                        name="verzend"
-                        value="send"
-                    >
-                        Verzend
-                    </button>
+
+                    <Button
+                        typeOfButton="submit"
+                        nameOfButton="verzend"
+                        valueOfButton="send"
+                        textOnButton="Verzend"
+                    />
+
+                    {/*<button*/}
+                    {/*    type="submit"*/}
+                    {/*    name="verzend"*/}
+                    {/*    value="send"*/}
+                    {/*>*/}
+                    {/*    Verzend*/}
+                    {/*</button>*/}
                     {/*maar pas bij klikken worden de fruitwaardes en de formulierwaardes in de console gelogd.*/}
                 </fieldset>
             </form>
