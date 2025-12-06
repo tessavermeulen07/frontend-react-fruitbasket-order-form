@@ -1,7 +1,9 @@
+import './Button.css'
+
 function Button({ typeOfButton, valueOfButton, nameOfButton, onClickOfButton, textOnButton }) {
 
     return (
-        <button
+        <button className="styled-button"
             type={typeOfButton}
             value={valueOfButton}
             name={nameOfButton}

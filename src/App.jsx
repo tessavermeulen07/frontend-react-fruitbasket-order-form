@@ -1,6 +1,8 @@
 import './App.css'
 import {useState} from "react";
-import Button from "./components/Button.jsx";
+import Button from "./components/button/Button.jsx";
+import CounterButton from "./components/counterButton/CounterButton.jsx";
+import InputLabelText from "./components/textLabel/InputLabelText.jsx"
 
 function App() {
 
@@ -44,59 +46,71 @@ function App() {
                 <div className="fruit-information">
                     <fieldset className="fruit-individual">
                         <h2>
-                            🍓Aardbeien <button
-                            type="button"
-                            name="minus"
-                            id="decrease-btn"
-                            disabled={strawberryCount === 0}
-                            onClick={() => setStrawberryCount(strawberryCount - 1)}>-</button> {strawberryCount} <button
-                                type="button"
-                                name="plus"
-                                id="increase-btn"
-                                onClick={() => setStrawberryCount(strawberryCount + 1)}>+
-                            </button>
+                            🍓Aardbeien <CounterButton
+                                typeOfButton="button"
+                                nameOfButton="minus"
+                                idOfButton="decrease-btn"
+                                disabled={strawberryCount === 0}
+                                onClickOfButton={() => setStrawberryCount(strawberryCount - 1)}
+                                textOnButton="-"
+                            /> {strawberryCount} <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="plus"
+                            idOfButton="increase-btn"
+                            onClickOfButton={() => setStrawberryCount(strawberryCount + 1)}
+                            textOnButton="+"
+                            />
                         </h2>
                     </fieldset>
                     <fieldset className="fruit-individual">
-                        <h2>🍌Bananen <button
-                            type="button"
-                            name="minus"
-                            id="decrease-btn"
+                        <h2>🍌Bananen <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="minus"
+                            idOfButton="decrease-btn"
                             disabled={bananaCount === 0}
-                            onClick={() => setBananaCount(bananaCount - 1)}>-</button> {bananaCount} <button
-                                type="button"
-                                name="plus"
-                                id="increase-btn"
-                                onClick={() => setBananaCount(bananaCount + 1)}>+
-                            </button>
+                            onClickOfButton={() => setBananaCount(bananaCount - 1)}
+                            textOnButton="-"
+                        /> {bananaCount} <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="plus"
+                            idOfButton="increase-btn"
+                            onClickOfButton={() => setBananaCount(bananaCount + 1)}
+                            textOnButton="+"
+                        />
                         </h2>
                     </fieldset>
                     <fieldset className="fruit-individual">
-                        <h2>🍎Appels <button
-                            type="button"
-                            name="minus"
-                            id="decrease-btn"
+                        <h2>🍎Appels <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="minus"
+                            idOfButton="decrease-btn"
                             disabled={appleCount === 0}
-                            onClick={() => setAppleCount(appleCount - 1)}>-</button> {appleCount} <button
-                                type="button"
-                                name="plus"
-                                id="increase-btn"
-                                onClick={() => setAppleCount(appleCount + 1)}>+
-                            </button>
+                            onClickOfButton={() => setAppleCount(appleCount - 1)}
+                            textOnButton="-"
+                        /> {appleCount} <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="plus"
+                            idOfButton="increase-btn"
+                            onClickOfButton={() => setAppleCount(appleCount + 1)}
+                            textOnButton="+"
+                        />
                         </h2>
                     </fieldset>
                     <fieldset className="fruit-individual">
-                        <h2>🥝Kiwi's <button
-                            type="button"
-                            name="minus"
-                            id="decrease-btn"
+                        <h2>🥝Kiwi&apos;s <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="minus"
+                            idOfButton="decrease-btn"
                             disabled={kiwiCount === 0}
-                            onClick={() => setKiwiCount(kiwiCount - 1)}>-</button> {kiwiCount} <button
-                                type="button"
-                                name="plus"
-                                id="increase-btn"
-                                onClick={() => setKiwiCount(kiwiCount + 1)}>+
-                            </button>
+                            onClickOfButton={() => setKiwiCount(kiwiCount - 1)}
+                            textOnButton="-"
+                        /> {kiwiCount} <CounterButton
+                            typeOfButton="button"
+                            nameOfButton="plus"
+                            idOfButton="increase-btn"
+                            onClickOfButton={() => setKiwiCount(kiwiCount + 1)}
+                            textOnButton="+"
+                        />
                         </h2>
                     </fieldset>
 
@@ -119,45 +133,50 @@ function App() {
                     {/*Hier een functie van maken zie 22 minuten*/}
                 </div>
                 <fieldset className="form-information">
-                    <label htmlFor="first-name">
-                        Voornaam: <input
-                        type="text"
-                        id="first-name"
-                        name="first-name"
-                        size="30"
-                        value={firstNameValue}
-                        onChange={(e) => setFirstNameValue(e.target.value)}
+                    <InputLabelText
+                        labelHTML="first-name"
+                        startTextLabel="Voornaam: "
+                        typeOfLabel="text"
+                        idOfLabel="first-name"
+                        nameOfLabel="first-name"
+                        sizeOfLabel="30"
+                        valueOfLabel={firstNameValue}
+                        onChangeOfLabel={(e) => setFirstNameValue(e.target.value)}
                     />
-                    </label>
-                    <label>Achternaam: <input
-                        type="text"
-                        id="last-name"
-                        name="last-name"
-                        size="30"
-                        value={lastNameValue}
-                        onChange={(e) => setLastNameValue(e.target.value)}
+                    <InputLabelText
+                        labelHTML="first-name"
+                        startTextLabel="Achternaam: "
+                        typeOfLabel="text"
+                        idOfLabel="last-name"
+                        nameOfLabel="last-name"
+                        sizeOfLabel="30"
+                        valueOfLabel={lastNameValue}
+                        onChangeOfLabel={(e) => setLastNameValue(e.target.value)}
                     />
-                    </label>
-                    <label>Leeftijd: <input
-                        type="number"
-                        id="age"
-                        name="age"
-                        size="30"
-                        value={ageValue}
-                        onChange={(e) => setAgeValue(e.target.value)}
+                    <InputLabelText
+                        labelHTML="age"
+                        startTextLabel="Leeftijd: "
+                        typeOfLabel="number"
+                        idOfLabel="age"
+                        nameOfLabel="age"
+                        sizeOfLabel="30"
+                        valueOfLabel={ageValue}
+                        onChangeOfLabel={(e) => setAgeValue(e.target.value)}
                     />
-                    </label>
-                    <label>Postcode: <input
-                        type="text"
-                        id="zipcode"
-                        name="zipcode"
-                        size="30"
-                        value={zipCodeValue}
-                        onChange={(e) => setZipCodeValue(e.target.value)}
+                    <InputLabelText
+                        labelHTML="zipcode"
+                        startTextLabel="Postcode: "
+                        typeOfLabel="text"
+                        idOfLabel="zipcode"
+                        nameOfLabel="zipcode"
+                        sizeOfLabel="30"
+                        valueOfLabel={zipCodeValue}
+                        onChangeOfLabel={(e) => setZipCodeValue(e.target.value)}
                     />
-                    </label>
-                    <label>Bezorgfrequentie
-                        <select
+
+                    <label className="label-style">
+                        <p>Bezorgfrequentie</p>
+                        <select className="label-style"
                             name="delivery-frequency"
                             id="delivery-frequency"
                             value={deliveryValue}
@@ -168,7 +187,7 @@ function App() {
                             <option value="iedere-maand">Iedere maand</option>
                         </select>
                     </label>
-                    <label>
+                    <label className="label-style">
                         <input
                             type="radio"
                             name="delivery-moment"
@@ -183,24 +202,24 @@ function App() {
                         onChange={(e) => setDeliveryMomentValue(e.target.value)}
                     /> &apos;s avonds
                     </label>
-                    <label>
+                    <label className="label-style">
                         <p>Opmerking:</p>
                         <textarea
                             id="remarks"
                             name="remarks"
                             rows="5"
-                            cols="30"
+                            cols="50"
                             value={remarkValue}
                             onChange={(e) => setRemarkValue(e.target.value)}
                         ></textarea>
                     </label>
-                    <label>
+                    <label className="label-style">
                         <input
                             type="checkbox"
                             id="conditions"
                             name="conditions-agreed"
                             checked={agreeConditionsValue}
-                            onChange={(e) => toggleAgreeConditionsValue(!agreeConditionsValue)}
+                            onChange={() => toggleAgreeConditionsValue(!agreeConditionsValue)}
                         /> Ik ga akkoord met de voorwaarden
                     </label>
 
@@ -211,14 +230,6 @@ function App() {
                         textOnButton="Verzend"
                     />
 
-                    {/*<button*/}
-                    {/*    type="submit"*/}
-                    {/*    name="verzend"*/}
-                    {/*    value="send"*/}
-                    {/*>*/}
-                    {/*    Verzend*/}
-                    {/*</button>*/}
-                    {/*maar pas bij klikken worden de fruitwaardes en de formulierwaardes in de console gelogd.*/}
                 </fieldset>
             </form>
         </>

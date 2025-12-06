@@ -1,0 +1,25 @@
+.styled-counter-button {
+    border: 0;
+    padding: 0 20px;
+    line-height: 2em;
+    text-align: center;
+    color: #fff;
+    background-color: darkgoldenrod;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Tahoma';
+    letter-spacing: 2px;
+}
+
+.styled-counter-button:disabled {
+    border: 0;
+    padding: 0 20px;
+    line-height: 2em;
+    text-align: center;
+    color: #fff;
+    background-color: lightgray;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Tahoma';
+    letter-spacing: 2px;
+}
