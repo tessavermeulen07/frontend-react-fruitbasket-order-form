@@ -47,28 +47,28 @@ function App() {
             <form onSubmit={handleSubmit}>
                 <div className="fruit-information">
                     <FruitFieldset
-                        fruitName="🍓Aardbeien"
+                        fruitName="🍓 Aardbeien"
                         count={strawberryCount}
                         disabledDecrease={strawberryCount === 0}
                         onDecrease={() => setStrawberryCount(strawberryCount -1)}
                         onIncrease={() => setStrawberryCount(strawberryCount +1)}
                     />
                     <FruitFieldset
-                        fruitName="🍌Bananen"
+                        fruitName="🍌 Bananen"
                         count={bananaCount}
                         disabledDecrease={bananaCount === 0}
                         onDecrease={() => setBananaCount(bananaCount -1)}
                         onIncrease={() => setBananaCount(bananaCount +1)}
                     />
                     <FruitFieldset
-                        fruitName="🍎Appels"
+                        fruitName="🍎 Appels"
                         count={appleCount}
                         disabledDecrease={appleCount === 0}
                         onDecrease={() => setAppleCount(appleCount -1)}
                         onIncrease={() => setAppleCount(appleCount +1)}
                     />
                     <FruitFieldset
-                        fruitName="🥝Kiwi&apos;s"
+                        fruitName="🥝 Kiwi&apos;s"
                         count={kiwiCount}
                         disabledDecrease={kiwiCount === 0}
                         onDecrease={() => setKiwiCount(kiwiCount -1)}

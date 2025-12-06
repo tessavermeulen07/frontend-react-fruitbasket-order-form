@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Tahoma;
+    font-size: 20px;
+}
+
 .fruit-information {
     display: flex;
     flex-direction: column;
@@ -27,3 +32,4 @@
 .img {
     width: 100%;
 }
+
