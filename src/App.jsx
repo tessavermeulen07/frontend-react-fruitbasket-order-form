@@ -2,7 +2,9 @@ import './App.css'
 import {useState} from "react";
 import Button from "./components/button/Button.jsx";
 import CounterButton from "./components/counterButton/CounterButton.jsx";
-import InputLabelText from "./components/textLabel/InputLabelText.jsx"
+import InputLabelText from "./components/textLabel/InputLabelText.jsx";
+import screenshot from "./assets/screenshot-logo.png";
+import FruitFieldset from "./components/fruitFieldset/FruitFieldset.jsx";
 
 function App() {
 
@@ -41,78 +43,37 @@ function App() {
 
     return (
         <>
-            <h1>Fruitmand bezorgservice</h1>
+            <img src={screenshot} alt="logo" className="img"/>
             <form onSubmit={handleSubmit}>
                 <div className="fruit-information">
-                    <fieldset className="fruit-individual">
-                        <h2>
-                            🍓Aardbeien <CounterButton
-                                typeOfButton="button"
-                                nameOfButton="minus"
-                                idOfButton="decrease-btn"
-                                disabled={strawberryCount === 0}
-                                onClickOfButton={() => setStrawberryCount(strawberryCount - 1)}
-                                textOnButton="-"
-                            /> {strawberryCount} <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="plus"
-                            idOfButton="increase-btn"
-                            onClickOfButton={() => setStrawberryCount(strawberryCount + 1)}
-                            textOnButton="+"
-                            />
-                        </h2>
-                    </fieldset>
-                    <fieldset className="fruit-individual">
-                        <h2>🍌Bananen <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="minus"
-                            idOfButton="decrease-btn"
-                            disabled={bananaCount === 0}
-                            onClickOfButton={() => setBananaCount(bananaCount - 1)}
-                            textOnButton="-"
-                        /> {bananaCount} <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="plus"
-                            idOfButton="increase-btn"
-                            onClickOfButton={() => setBananaCount(bananaCount + 1)}
-                            textOnButton="+"
-                        />
-                        </h2>
-                    </fieldset>
-                    <fieldset className="fruit-individual">
-                        <h2>🍎Appels <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="minus"
-                            idOfButton="decrease-btn"
-                            disabled={appleCount === 0}
-                            onClickOfButton={() => setAppleCount(appleCount - 1)}
-                            textOnButton="-"
-                        /> {appleCount} <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="plus"
-                            idOfButton="increase-btn"
-                            onClickOfButton={() => setAppleCount(appleCount + 1)}
-                            textOnButton="+"
-                        />
-                        </h2>
-                    </fieldset>
-                    <fieldset className="fruit-individual">
-                        <h2>🥝Kiwi&apos;s <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="minus"
-                            idOfButton="decrease-btn"
-                            disabled={kiwiCount === 0}
-                            onClickOfButton={() => setKiwiCount(kiwiCount - 1)}
-                            textOnButton="-"
-                        /> {kiwiCount} <CounterButton
-                            typeOfButton="button"
-                            nameOfButton="plus"
-                            idOfButton="increase-btn"
-                            onClickOfButton={() => setKiwiCount(kiwiCount + 1)}
-                            textOnButton="+"
-                        />
-                        </h2>
-                    </fieldset>
+                    <FruitFieldset
+                        fruitName="🍓Aardbeien"
+                        count={strawberryCount}
+                        disabledDecrease={strawberryCount === 0}
+                        onDecrease={() => setStrawberryCount(strawberryCount -1)}
+                        onIncrease={() => setStrawberryCount(strawberryCount +1)}
+                    />
+                    <FruitFieldset
+                        fruitName="🍌Bananen"
+                        count={bananaCount}
+                        disabledDecrease={bananaCount === 0}
+                        onDecrease={() => setBananaCount(bananaCount -1)}
+                        onIncrease={() => setBananaCount(bananaCount +1)}
+                    />
+                    <FruitFieldset
+                        fruitName="🍎Appels"
+                        count={appleCount}
+                        disabledDecrease={appleCount === 0}
+                        onDecrease={() => setAppleCount(appleCount -1)}
+                        onIncrease={() => setAppleCount(appleCount +1)}
+                    />
+                    <FruitFieldset
+                        fruitName="🥝Kiwi&apos;s"
+                        count={kiwiCount}
+                        disabledDecrease={kiwiCount === 0}
+                        onDecrease={() => setKiwiCount(kiwiCount -1)}
+                        onIncrease={() => setKiwiCount(kiwiCount +1)}
+                    />
 
                     <Button
                         typeOfButton="reset"
