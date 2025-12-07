@@ -1,7 +1,6 @@
 import './App.css'
 import {useState} from "react";
 import Button from "./components/button/Button.jsx";
-import CounterButton from "./components/counterButton/CounterButton.jsx";
 import InputLabelText from "./components/textLabel/InputLabelText.jsx";
 import screenshot from "./assets/screenshot-logo.png";
 import FruitFieldset from "./components/fruitFieldset/FruitFieldset.jsx";
